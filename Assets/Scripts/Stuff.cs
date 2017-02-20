@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Stuff : MonoBehaviour {
+public class Stuff : PooledObject {
 
 	public Rigidbody Body { get; private set; }
 
@@ -32,7 +32,7 @@ public class Stuff : MonoBehaviour {
 	{
 		if (enteredCollider.CompareTag("Kill Zone"))
 		{
-			Destroy (gameObject);
+            ReturnToPool();
 		}
 	}
 	
